@@ -20,6 +20,12 @@ a:focus {
   outline-offset: 0px;
   text-decoration:none;
 }
+.sub-title {
+  margin-bottom: 15px;
+}
+.bottom_cnt {
+  margin-top: 15px;
+}
 /*-- header_top --*/
 .top-header{
 	background:#000;
