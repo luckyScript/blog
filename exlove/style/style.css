@@ -1,0 +1,21 @@
+.img{
+    width: 600px;
+    height: auto;
+}
+#impress{
+    z-index: 1000;
+}
+@font-face {
+    font-family: webFont;
+    src: url("../yefont.ttf") format("TrueType");
+}
+p,marquee{
+    font-family: webFont;
+}
+@font-face {
+    font-family: digital;
+    src: url("../digital-7_mono.ttf") format("TrueType");
+}
+#time{
+	font-family: digital;
+}

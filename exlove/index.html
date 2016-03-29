@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--Use impress.js-->
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024"/>
+    <meta name="author" content="Kay Luv"/>
+    <link href="style/impress.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style/style.css"/>
+    <title>爱过</title>
+
+</head>
+<body>
+<audio src="audio/yidiantong.mp3" autoplay="autoplay" loop="loop"></audio>
+<div id="impress">
+    <div class="step" data-x="0" data-y="0" id="index">
+        <img class="img" src="image/img1.jpg" alt="" style="width:400px;height:auto;"/>
+        <p id="time"></p>
+    </div>
+    <div class="step" data-x="0" data-y="1000">
+        <p>曾经的你,最近过的如何？</p>
+        <p></p>
+        <p></p>
+    </div>
+    
+    <div class="step" data-x="0" data-y="1200" data-rotate-x="30" data-rotate-y="-30" data-rotate-z="90">
+        <p>我曾读过<br>
+        聂鲁达的诗歌<br>
+       将它<br>
+        送给曾今属于我的你<br></p>
+    </div>
+    
+    
+    <div class="step" data-x="1000" data-y="-300">
+        <p>相思成灰<br>
+        成灰亦相思<br>
+        一曲杨柳枝<br>
+        万条吹不展<br></p>
+    </div>
+    
+    <div class="step" data-x="500" data-y="-400">
+        <p>昼夜起相思<br>
+        一寸相思一寸灰<br>
+        寸灰难解寸相思<br>
+        这灰落尘入土<br></p>
+    </div>
+    <div class="step" data-x="500" data-y="-800" data-scale="0.5">
+        <p>成泥成尘<br>
+        想念你<br>
+        在每个夜晚<br>
+        带着期待入眠……<br>
+        梦里有日思夜想的你<br></p>
+    </div>
+    <div class="step" data-x="0" data-y="-800" data-rotate="90">
+        <p>你没有改变<br>
+        依旧的容颜<br>
+        变化的是时间<br>
+        这样匆匆……<br></p>
+    </div>
+    <div class="step" data-x="-1200" data-y="0" data-rotate-x="30" data-rotate-y="-30" data-rotate-z="90" data-scale="4">
+        <p>想念你<br>
+        在每个晨曦<br>
+        带着泪滴醒来……<br>
+        总在梦醒时消失<br>
+        只留下破碎的背影<br></p>
+    </div>
+    <div class="step" data-x="1200" data-y="0" data-rotate-x="90">
+        <p>我知道我又一次的轮回沉沦于你的记忆里<br>
+        游走于街头<br>
+        看着人潮汹涌<br></p>
+    </div>
+    <div class="step" data-x="1000" data-y="1200" data-z="600" data-rotate-x="45" data-rotate-y="50" data-rotate-z="30" data-scale="2">
+        <p>
+        一切成了你的影子<br>
+        希望我的思念可以穿越时空<br>
+        经受岁月的洗礼<br></p>
+    </div>
+    
+    <div class="step" data-x="800" data-y="600" data-z="600" data-rotate-x="45" data-rotate-y="50" data-rotate-z="30" data-scale="2">
+        <p>
+        大二这年，我也成长了许多。<br>
+        偶尔想起曾今也会有莞尔一笑。<br>
+        这是todalin的第二个版本<br>
+        作者：Kay<br>
+        </p>
+    </div>
+    
+    <div class="step" id="its-in-3d" data-x="3200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+        <marquee scrollamount="3" align="middle" class="bottom">感谢你我，给了彼此难忘的一年。就像你说的一样，将最好的祝福留给对方！</marquee>
+        <p><span class="have">明知</span> <span class="you">相思苦，</span> <span class="noticed">无奈</span> <span class="its">苦</span> <span class="in">相</span> <b>思</b></p>
+    </div>
+    <div id="overview" class="step" data-x="-200" data-y="-500" data-scale="3">
+    </div>
+</div>
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+    <script>
+        const endTime = new Date(2013,10,10,21,0,0)
+var curShowTimeSeconds = 0
+
+function getCurrentShowTimeSeconds() {
+    var curTime = new Date();
+    var ret = curTime.getTime() - endTime.getTime();
+    ret = Math.round( ret/1000 )
+
+    return ret >= 0 ? ret : 0;
+}
+
+function update(){
+
+    var nextShowTimeSeconds = getCurrentShowTimeSeconds();
+    var nextYears = parseInt(nextShowTimeSeconds / 31536000);
+    var nextDays = parseInt((nextShowTimeSeconds - nextYears * 31536000)/86400)
+    var nextHours = parseInt((nextShowTimeSeconds - nextYears * 31536000 - nextDays*86400)/3600);
+    var nextMinutes = parseInt( (nextShowTimeSeconds - nextYears * 31536000 - nextHours * 3600 - nextDays*86400)/60 )
+    var nextSeconds = nextShowTimeSeconds % 60
+    
+    var time = document.getElementById('time');
+    time.innerHTML = "初恋已经"+nextYears+"年"+nextDays+"日"+nextHours+"时"+nextMinutes+"分"+nextSeconds+"秒";
+}
+setInterval("update()",100)
+    </script>
+</body>
+</html>
