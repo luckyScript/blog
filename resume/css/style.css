@@ -272,19 +272,19 @@ ul.media_sec li img{
 ul.media_sec span{
   color: #11DADA;
 }
-.copywrite {
+.copyright {
   padding-left: 1em;
   margin-top: 2em;
   text-align:center;
 }
-.copywrite p {
+.copyright p {
   color: #999;
   font-size: 0.9em;
 }
-.copywrite p a {
+.copyright p a {
   color: #999;
 }
-.copywrite p a:hover{
+.copyright p a:hover{
   color: #11DADA;
 }
 /*--responsive--*/
