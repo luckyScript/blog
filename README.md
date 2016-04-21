@@ -18,7 +18,7 @@
 
 另外在这里感谢我学习路上，一直帮我的好盆友们。
 
-[YunenHe](https://github.com/heyunen)，[Vinthony](https://github.com/vinthony)，[sammok](https://github.com/sammok)。
+[YunenHe](https://github.com/heyunen)，[Vinthony](https://github.com/vinthony)，[sammok](https://github.com/sammok),[凹凸](https://github.com/asd0102433),[Leon](https://github.com/helloleonguan)。
 
 所以还是那句话：不忘初心，方得始终。
 
