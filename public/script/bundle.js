@@ -25432,7 +25432,7 @@
 
 	var React = __webpack_require__(1);
 	var Main = __webpack_require__(226);
-	var Home = __webpack_require__(232);
+	var Home = __webpack_require__(227);
 	var Time = __webpack_require__(237);
 	var April2016 = __webpack_require__(238);
 	var Github = __webpack_require__(239);
@@ -25530,8 +25530,274 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var CommentList = __webpack_require__(228);
-	var AddComment = __webpack_require__(229);
+	var Profile = __webpack_require__(228);
+	var SubSites = __webpack_require__(229);
+	var FriendSites = __webpack_require__(240);
+	var LifeLine = __webpack_require__(230);
+	var Comment = __webpack_require__(232);
+	var ReactFireMixin = __webpack_require__(235);
+	var Firebase = __webpack_require__(236);
+
+	var Home = React.createClass({
+		displayName: 'Home',
+
+		mixins: [ReactFireMixin],
+		getInitialState: function getInitialState() {
+			return {
+				comments: []
+			};
+		},
+		componentDidMount: function componentDidMount() {
+			this.ref = new Firebase('https://luckyscript.firebaseio.com');
+			var childRef = this.ref.child(window.location.hash.split("?")[0].split("#")[1]);
+			this.bindAsArray(childRef, 'comments');
+		},
+		addComment: function addComment(newNote) {
+			this.ref.child(window.location.hash.split("?")[0].split("#")[1]).child(this.state.comments.length).set(newNote + " | " + (new Date().getMonth() + 1) + "-" + new Date().getDate());
+		},
+		render: function render() {
+			return React.createElement(
+				'div',
+				{ className: 'row' },
+				React.createElement(
+					'div',
+					{ className: 'col-md-8' },
+					React.createElement(Profile, null),
+					React.createElement(
+						'div',
+						{ className: 'col-md-6' },
+						React.createElement(
+							'h3',
+							null,
+							'SubSites of luckyscript: '
+						),
+						React.createElement(SubSites, null),
+						React.createElement(LifeLine, null),
+						React.createElement(
+							'h3',
+							null,
+							'Sites:'
+						),
+						React.createElement(FriendSites, null)
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'col-md-4' },
+					React.createElement(Comment, { addComment: this.addComment, comments: this.state.comments })
+				)
+			);
+		}
+	});
+
+	module.exports = Home;
+
+/***/ },
+/* 228 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var Profile = React.createClass({
+		displayName: "Profile",
+
+		render: function render() {
+			return React.createElement(
+				"div",
+				{ className: "col-md-6" },
+				React.createElement(
+					"ul",
+					{ className: "list-group" },
+					React.createElement(
+						"li",
+						{ className: "list-group-item" },
+						React.createElement("img", { src: "https://avatars0.githubusercontent.com/u/9391201", className: "avatar" })
+					),
+					React.createElement(
+						"li",
+						{ className: "list-group-item" },
+						"Name: Luckyscript"
+					),
+					React.createElement(
+						"li",
+						{ className: "list-group-item" },
+						"Email: jsjhlk@gmail.com"
+					),
+					React.createElement(
+						"li",
+						{ className: "list-group-item" },
+						"Location: Beijing"
+					),
+					React.createElement(
+						"li",
+						{ className: "list-group-item" },
+						"Company: BIDU"
+					),
+					React.createElement(
+						"li",
+						{ className: "list-group-item" },
+						"Blog: ",
+						React.createElement(
+							"a",
+							{ href: "https://github.com/luckyScript/luckyscript.github.io/issues" },
+							"Tech blog"
+						)
+					),
+					React.createElement(
+						"li",
+						{ className: "list-group-item" },
+						"Weibo: ",
+						React.createElement(
+							"a",
+							{ href: "http://weibo.com/jsjhlk", target: "_blank" },
+							"luckyscript"
+						)
+					)
+				)
+			);
+		}
+	});
+	module.exports = Profile;
+
+/***/ },
+/* 229 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+	var SubSites = React.createClass({
+		displayName: "SubSites",
+
+		render: function render() {
+			return React.createElement(
+				"ul",
+				{ className: "list-group" },
+				React.createElement(
+					"a",
+					{ href: "http://www.luckyscript.me/yuppie" },
+					React.createElement(
+						"li",
+						{ className: "list-group-item" },
+						React.createElement(
+							"h4",
+							null,
+							React.createElement(
+								"p",
+								null,
+								"For yuppie"
+							)
+						)
+					)
+				),
+				React.createElement(
+					"a",
+					{ href: "http://www.luckyscript.me/resume" },
+					React.createElement(
+						"li",
+						{ className: "list-group-item" },
+						React.createElement(
+							"h4",
+							null,
+							React.createElement(
+								"p",
+								null,
+								"My resume online"
+							)
+						)
+					)
+				)
+			);
+		}
+	});
+
+	module.exports = SubSites;
+
+/***/ },
+/* 230 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var LifeLineList = __webpack_require__(231);
+
+	var LifeLine = React.createClass({
+		displayName: 'LifeLine',
+
+		render: function render() {
+			return React.createElement(
+				'div',
+				null,
+				React.createElement(
+					'h3',
+					null,
+					'LifeLine of Luckyscript'
+				),
+				React.createElement(LifeLineList, null)
+			);
+		}
+	});
+	module.exports = LifeLine;
+
+/***/ },
+/* 231 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var Router = __webpack_require__(166);
+
+	var LifeLineList = React.createClass({
+		displayName: 'LifeLineList',
+
+		mixins: [Router.History],
+		getRef: function getRef(ref) {
+			this.url = ref;
+		},
+		handleClick: function handleClick() {
+			this.history.pushState(null, "time/" + this.url.getElementsByTagName('input')[0].value);
+		},
+		render: function render() {
+			return React.createElement(
+				'ul',
+				{ className: 'list-group' },
+				React.createElement(
+					'li',
+					{ className: 'list-group-item lifeLine', onClick: this.handleClick, ref: this.getRef },
+					React.createElement('input', { type: 'hidden', value: '201604' }),
+					React.createElement(
+						'h4',
+						null,
+						React.createElement(
+							'p',
+							null,
+							'April 2016'
+						)
+					),
+					React.createElement(
+						'p',
+						null,
+						'Study in Baidu'
+					)
+				)
+			);
+		}
+	});
+	module.exports = LifeLineList;
+
+/***/ },
+/* 232 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var CommentList = __webpack_require__(233);
+	var AddComment = __webpack_require__(234);
 
 	var Comment = React.createClass({
 		displayName: 'Comment',
@@ -25557,7 +25823,7 @@
 	module.exports = Comment;
 
 /***/ },
-/* 228 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25587,7 +25853,7 @@
 	module.exports = CommentList;
 
 /***/ },
-/* 229 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25625,7 +25891,7 @@
 	module.exports = AddComment;
 
 /***/ },
-/* 230 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -25996,7 +26262,7 @@
 
 
 /***/ },
-/* 231 */
+/* 236 */
 /***/ function(module, exports) {
 
 	/*! @license Firebase v2.4.2
@@ -26282,254 +26548,15 @@
 
 
 /***/ },
-/* 232 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var Profile = __webpack_require__(233);
-	var SubSites = __webpack_require__(234);
-	var LifeLine = __webpack_require__(235);
-	var Comment = __webpack_require__(227);
-	var ReactFireMixin = __webpack_require__(230);
-	var Firebase = __webpack_require__(231);
-
-	var Home = React.createClass({
-		displayName: 'Home',
-
-		mixins: [ReactFireMixin],
-		getInitialState: function getInitialState() {
-			return {
-				comments: []
-			};
-		},
-		componentDidMount: function componentDidMount() {
-			this.ref = new Firebase('https://luckyscript.firebaseio.com');
-			var childRef = this.ref.child(window.location.hash.split("?")[0].split("#")[1]);
-			this.bindAsArray(childRef, 'comments');
-		},
-		addComment: function addComment(newNote) {
-			this.ref.child(window.location.hash.split("?")[0].split("#")[1]).child(this.state.comments.length).set(newNote + " | " + (new Date().getMonth() + 1) + "-" + new Date().getDate());
-		},
-		render: function render() {
-			return React.createElement(
-				'div',
-				{ className: 'row' },
-				React.createElement(
-					'div',
-					{ className: 'col-md-8' },
-					React.createElement(Profile, null),
-					React.createElement(
-						'div',
-						{ className: 'col-md-6' },
-						React.createElement(
-							'h3',
-							null,
-							'SubSites of luckyscript: '
-						),
-						React.createElement(SubSites, null),
-						React.createElement(LifeLine, null)
-					)
-				),
-				React.createElement(
-					'div',
-					{ className: 'col-md-4' },
-					React.createElement(Comment, { addComment: this.addComment, comments: this.state.comments })
-				)
-			);
-		}
-	});
-
-	module.exports = Home;
-
-/***/ },
-/* 233 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var React = __webpack_require__(1);
-
-	var Profile = React.createClass({
-		displayName: "Profile",
-
-		render: function render() {
-			return React.createElement(
-				"div",
-				{ className: "col-md-6" },
-				React.createElement(
-					"li",
-					{ className: "list-group-item" },
-					React.createElement("img", { src: "https://avatars0.githubusercontent.com/u/9391201", className: "avatar" })
-				),
-				React.createElement(
-					"li",
-					{ className: "list-group-item" },
-					"Name: Luckyscript"
-				),
-				React.createElement(
-					"li",
-					{ className: "list-group-item" },
-					"Email: jsjhlk@gmail.com"
-				),
-				React.createElement(
-					"li",
-					{ className: "list-group-item" },
-					"Location: Beijing"
-				),
-				React.createElement(
-					"li",
-					{ className: "list-group-item" },
-					"Company: BIDU"
-				),
-				React.createElement(
-					"li",
-					{ className: "list-group-item" },
-					"Blog: ",
-					React.createElement(
-						"a",
-						{ href: "https://github.com/luckyScript/luckyscript.github.io/issues" },
-						"Tech blog"
-					)
-				),
-				React.createElement(
-					"li",
-					{ className: "list-group-item" },
-					"Weibo: ",
-					React.createElement(
-						"a",
-						{ href: "http://weibo.com/jsjhlk", target: "_blank" },
-						"luckyscript"
-					)
-				)
-			);
-		}
-	});
-	module.exports = Profile;
-
-/***/ },
-/* 234 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var React = __webpack_require__(1);
-	var SubSites = React.createClass({
-		displayName: "SubSites",
-
-		render: function render() {
-			return React.createElement(
-				"ul",
-				{ className: "list-group" },
-				React.createElement(
-					"li",
-					{ className: "list-group-item" },
-					React.createElement(
-						"h4",
-						null,
-						React.createElement(
-							"p",
-							null,
-							"For yuppie"
-						)
-					),
-					React.createElement(
-						"a",
-						{ href: "http://www.luckyscript.me/yuppie" },
-						"link"
-					)
-				)
-			);
-		}
-	});
-
-	module.exports = SubSites;
-
-/***/ },
-/* 235 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var LifeLineList = __webpack_require__(236);
-
-	var LifeLine = React.createClass({
-		displayName: 'LifeLine',
-
-		render: function render() {
-			return React.createElement(
-				'div',
-				null,
-				React.createElement(
-					'h3',
-					null,
-					'LifeLine of Luckyscript'
-				),
-				React.createElement(LifeLineList, null)
-			);
-		}
-	});
-	module.exports = LifeLine;
-
-/***/ },
-/* 236 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var Router = __webpack_require__(166);
-
-	var LifeLineList = React.createClass({
-		displayName: 'LifeLineList',
-
-		mixins: [Router.History],
-		getRef: function getRef(ref) {
-			this.url = ref;
-		},
-		handleClick: function handleClick() {
-			this.history.pushState(null, "time/" + this.url.getElementsByTagName('input')[0].value);
-		},
-		render: function render() {
-			return React.createElement(
-				'ul',
-				{ className: 'list-group' },
-				React.createElement(
-					'li',
-					{ className: 'list-group-item lifeLine', onClick: this.handleClick, ref: this.getRef },
-					React.createElement('input', { type: 'hidden', value: '201604' }),
-					React.createElement(
-						'h4',
-						null,
-						React.createElement(
-							'p',
-							null,
-							'April 2016'
-						)
-					),
-					React.createElement(
-						'p',
-						null,
-						'Study in Baidu'
-					)
-				)
-			);
-		}
-	});
-	module.exports = LifeLineList;
-
-/***/ },
 /* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var Comment = __webpack_require__(227);
-	var ReactFireMixin = __webpack_require__(230);
-	var Firebase = __webpack_require__(231);
+	var Comment = __webpack_require__(232);
+	var ReactFireMixin = __webpack_require__(235);
+	var Firebase = __webpack_require__(236);
 
 	var Time = React.createClass({
 		displayName: 'Time',
@@ -26632,6 +26659,43 @@
 	});
 
 	module.exports = Github;
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+	var FriendSites = React.createClass({
+		displayName: "FriendSites",
+
+		render: function render() {
+			return React.createElement(
+				"ul",
+				{ className: "list-group" },
+				React.createElement(
+					"a",
+					{ href: "http://yooooh.net/", target: "_blank" },
+					React.createElement(
+						"li",
+						{ className: "list-group-item" },
+						React.createElement(
+							"h4",
+							null,
+							React.createElement(
+								"p",
+								null,
+								"Mr.Thunder"
+							)
+						)
+					)
+				)
+			);
+		}
+	});
+
+	module.exports = FriendSites;
 
 /***/ }
 /******/ ]);
