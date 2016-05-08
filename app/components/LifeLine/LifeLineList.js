@@ -17,6 +17,11 @@ var LifeLineList = React.createClass({
 					<h4><p>April 2016</p></h4>
 					<p>Study in Baidu</p>
 				</li>
+				<li className="list-group-item lifeLine" onClick={this.handleClick} ref={this.getRef}>
+					<input type="hidden" value="201605"/>
+					<h4><p>May 2016</p></h4>
+					<p>Beijing,Xi an</p>
+				</li>
 			</ul>
 		)
 	}

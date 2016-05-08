@@ -152,3 +152,12 @@ header {
   border-radius: 4px;
   box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
 }
+.time-img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transition: filter,-webkit-filter 0.8s;
+}
+.time-img:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}

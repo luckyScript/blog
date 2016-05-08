@@ -25433,9 +25433,10 @@
 	var React = __webpack_require__(1);
 	var Main = __webpack_require__(226);
 	var Home = __webpack_require__(227);
-	var Time = __webpack_require__(237);
-	var April2016 = __webpack_require__(238);
-	var Github = __webpack_require__(239);
+	var Time = __webpack_require__(238);
+	var April2016 = __webpack_require__(239);
+	var May2016 = __webpack_require__(241);
+	var Github = __webpack_require__(240);
 	var Router = __webpack_require__(166);
 	var Route = Router.Route;
 	var IndexRoute = Router.IndexRoute;
@@ -25446,7 +25447,8 @@
 	    React.createElement(
 	        Route,
 	        { path: 'time', component: Time },
-	        React.createElement(Route, { path: '201604', component: April2016 })
+	        React.createElement(Route, { path: '201604', component: April2016 }),
+	        React.createElement(Route, { path: '201605', component: May2016 })
 	    ),
 	    React.createElement(Route, { path: 'github', component: Github }),
 	    React.createElement(IndexRoute, { component: Home })
@@ -25532,11 +25534,11 @@
 	var React = __webpack_require__(1);
 	var Profile = __webpack_require__(228);
 	var SubSites = __webpack_require__(229);
-	var FriendSites = __webpack_require__(240);
-	var LifeLine = __webpack_require__(230);
-	var Comment = __webpack_require__(232);
-	var ReactFireMixin = __webpack_require__(235);
-	var Firebase = __webpack_require__(236);
+	var FriendSites = __webpack_require__(230);
+	var LifeLine = __webpack_require__(231);
+	var Comment = __webpack_require__(233);
+	var ReactFireMixin = __webpack_require__(236);
+	var Firebase = __webpack_require__(237);
 
 	var Home = React.createClass({
 		displayName: 'Home',
@@ -25719,10 +25721,47 @@
 /* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	var React = __webpack_require__(1);
+	var FriendSites = React.createClass({
+		displayName: "FriendSites",
+
+		render: function render() {
+			return React.createElement(
+				"ul",
+				{ className: "list-group" },
+				React.createElement(
+					"a",
+					{ href: "http://yooooh.net/", target: "_blank" },
+					React.createElement(
+						"li",
+						{ className: "list-group-item" },
+						React.createElement(
+							"h4",
+							null,
+							React.createElement(
+								"p",
+								null,
+								"Mr.Thunder"
+							)
+						)
+					)
+				)
+			);
+		}
+	});
+
+	module.exports = FriendSites;
+
+/***/ },
+/* 231 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var LifeLineList = __webpack_require__(231);
+	var LifeLineList = __webpack_require__(232);
 
 	var LifeLine = React.createClass({
 		displayName: 'LifeLine',
@@ -25743,7 +25782,7 @@
 	module.exports = LifeLine;
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25783,6 +25822,25 @@
 						null,
 						'Study in Baidu'
 					)
+				),
+				React.createElement(
+					'li',
+					{ className: 'list-group-item lifeLine', onClick: this.handleClick, ref: this.getRef },
+					React.createElement('input', { type: 'hidden', value: '201605' }),
+					React.createElement(
+						'h4',
+						null,
+						React.createElement(
+							'p',
+							null,
+							'May 2016'
+						)
+					),
+					React.createElement(
+						'p',
+						null,
+						'Beijing,Xi an'
+					)
 				)
 			);
 		}
@@ -25790,14 +25848,14 @@
 	module.exports = LifeLineList;
 
 /***/ },
-/* 232 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var CommentList = __webpack_require__(233);
-	var AddComment = __webpack_require__(234);
+	var CommentList = __webpack_require__(234);
+	var AddComment = __webpack_require__(235);
 
 	var Comment = React.createClass({
 		displayName: 'Comment',
@@ -25823,7 +25881,7 @@
 	module.exports = Comment;
 
 /***/ },
-/* 233 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25853,7 +25911,7 @@
 	module.exports = CommentList;
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25891,7 +25949,7 @@
 	module.exports = AddComment;
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -26262,7 +26320,7 @@
 
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports) {
 
 	/*! @license Firebase v2.4.2
@@ -26548,15 +26606,15 @@
 
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var Comment = __webpack_require__(232);
-	var ReactFireMixin = __webpack_require__(235);
-	var Firebase = __webpack_require__(236);
+	var Comment = __webpack_require__(233);
+	var ReactFireMixin = __webpack_require__(236);
+	var Firebase = __webpack_require__(237);
 
 	var Time = React.createClass({
 		displayName: 'Time',
@@ -26596,7 +26654,7 @@
 	module.exports = Time;
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26639,7 +26697,7 @@
 	module.exports = April2016;
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26661,41 +26719,48 @@
 	module.exports = Github;
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
 	var React = __webpack_require__(1);
-	var FriendSites = React.createClass({
-		displayName: "FriendSites",
+
+	var April2016 = React.createClass({
+		displayName: "April2016",
 
 		render: function render() {
 			return React.createElement(
-				"ul",
-				{ className: "list-group" },
+				"div",
+				null,
 				React.createElement(
-					"a",
-					{ href: "http://yooooh.net/", target: "_blank" },
-					React.createElement(
-						"li",
-						{ className: "list-group-item" },
-						React.createElement(
-							"h4",
-							null,
-							React.createElement(
-								"p",
-								null,
-								"Mr.Thunder"
-							)
-						)
-					)
-				)
+					"h2",
+					null,
+					"Tian an men square"
+				),
+				React.createElement(
+					"p",
+					null,
+					"First time to seen the chairman mao in Tian an men square."
+				),
+				React.createElement("img", { className: "time-img", src: "./assert/201605-01.jpg" }),
+				React.createElement("img", { className: "time-img", src: "./assert/201605-02.jpg" }),
+				React.createElement(
+					"h2",
+					null,
+					"In school"
+				),
+				React.createElement(
+					"p",
+					null,
+					"Back to school for an exam and a rest."
+				),
+				React.createElement("img", { className: "time-img", src: "./assert/201605-03.jpg" }),
+				React.createElement("img", { className: "time-img", src: "./assert/201605-04.jpg" })
 			);
 		}
 	});
-
-	module.exports = FriendSites;
+	module.exports = April2016;
 
 /***/ }
 /******/ ]);
