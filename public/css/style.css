@@ -139,7 +139,7 @@ header {
   margin-bottom: 3px;
 }
 .time-img {
-  width: 95%;
+  width: 30%;
   margin: 15px;
   height: auto;
 }
@@ -151,6 +151,16 @@ header {
   margin-bottom: 15px;
   border-radius: 4px;
   box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+}
+.time-block {
+  box-shadow: 2px 2px 15px rgba(0,0,0,0.5);
+  border-radius: 10px;
+  margin: 25px;
+  padding: 10px;
+}
+.time-header {
+  width: 100%;
+  text-align: center;
 }
 .time-img {
   -webkit-filter: grayscale(100%);

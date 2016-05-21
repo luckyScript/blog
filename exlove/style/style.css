@@ -17,5 +17,5 @@ p,marquee{
     src: url("../digital-7_mono.ttf") format("TrueType");
 }
 #time{
-	font-family: digital;
+    font-family: digital;
 }

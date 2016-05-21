@@ -2,17 +2,17 @@ h4, h5, h6,h1, h2, h3 {margin: 0;}
 ul, ol {margin: 0; padding:0;}
 p {margin: 0;}
 html, body{
-	font-family: 'Ubuntu', sans-serif;
-	font-size: 100%;
-	background: #ffffff;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 100%;
+    background: #ffffff;
 }
 body a{
-	transition:0.5s all;
-	-webkit-transition:0.5s all;
-	-moz-transition:0.5s all;
-	-o-transition:0.5s all;
-	-ms-transition:0.5s all;
-}	
+    transition:0.5s all;
+    -webkit-transition:0.5s all;
+    -moz-transition:0.5s all;
+    -o-transition:0.5s all;
+    -ms-transition:0.5s all;
+}    
 body {
   padding-top:0px;
 }
@@ -28,48 +28,48 @@ a:focus {
 }
 /*-- header_top --*/
 .top-header{
-	background:#000;
-	padding:10px 0;
-	position:relative;
+    background:#000;
+    padding:10px 0;
+    position:relative;
 }
 .header{
-	float:left;
-	  width: 50%;
+    float:left;
+      width: 50%;
 }
 .header h1{
-	 background:#11DADA;
-	color:#fff;
-	padding:35px 20px 10px 20px;
-	font-weight:600;
-	display:inline-block;
-	font-size: 4em;
-	  border-bottom: 9px solid #000;
+     background:#11DADA;
+    color:#fff;
+    padding:35px 20px 10px 20px;
+    font-weight:600;
+    display:inline-block;
+    font-size: 4em;
+      border-bottom: 9px solid #000;
 }
 .header-right{
-	float:right;
-	width:33%;		
-}	
+    float:right;
+    width:33%;        
+}    
 .list ul{
-		background:#000;
-		padding:0.5em 1em;	
-		text-align:center;	
+        background:#000;
+        padding:0.5em 1em;    
+        text-align:center;    
 }
 .list ul li {
-	display:inline-block;
-	color:#fff;
+    display:inline-block;
+    color:#fff;
 }
 .list ul li a{
-	color:#fff;
+    color:#fff;
 }
 .header-right h2{
-	color:#333;
-	font-size:3em;
-	margin-top:50px;
-	display: inline-block;
-	text-align:right;
+    color:#333;
+    font-size:3em;
+    margin-top:50px;
+    display: inline-block;
+    text-align:right;
 }
 .header-right span{
-	color: #000;
+    color: #000;
   font-size: 1.5em;
   text-align: center;
   padding: 10px 18px;
@@ -80,13 +80,13 @@ a:focus {
 }
 /*----*/
 .content{
-	margin:2em 0; 
+    margin:2em 0; 
 }
 .content h3{
-	color:#333;
-	font-size:1.6em;
-	font-weight:600;
-	  font-style: italic;
+    color:#333;
+    font-size:1.6em;
+    font-weight:600;
+      font-style: italic;
 }
 .work,.skill {
   border-left: 11px solid #11DADA;
@@ -95,13 +95,13 @@ a:focus {
     margin-bottom: 2.5em;
 }
 .work {
-	margin-bottom:2.5em;
+    margin-bottom:2.5em;
 }
 .details{
-	margin-top:2.5em;
+    margin-top:2.5em;
 }
 .date p{
-	color: #fff;
+    color: #fff;
   font-size: 1em;
   font-weight: 600;
   background: #11DADA;
@@ -113,33 +113,33 @@ a:focus {
   margin-right: 3em;
 }
 .posts h4,.college h4{
-	color:#333;
-	font-size:1.2em;
-	margin-bottom:3px;
-	font-weight:600;
+    color:#333;
+    font-size:1.2em;
+    margin-bottom:3px;
+    font-weight:600;
 }
 .posts p,.college h5{
-	line-height:1.5em;
-	color:#999;
-	font-weight: 300;
+    line-height:1.5em;
+    color:#999;
+    font-weight: 300;
 }
 .college h5{
-	color:#999;
-	font-size:1em;
-	font-weight: 400;
+    color:#999;
+    font-size:1em;
+    font-weight: 400;
 }
 .city{ 
-	width:19%;
+    width:19%;
 }
 .city h5{
-	color:#333;
-	font-size:1.1em;
-	font-weight:600;
+    color:#333;
+    font-size:1.1em;
+    font-weight:600;
 }
 .city p{
-	color:#333;
-	font-size:1em;
-	font-weight:600;
+    color:#333;
+    font-size:1em;
+    font-weight:600;
 }
 .tech-details {
     list-style: none;
@@ -157,35 +157,35 @@ a:focus {
 }
 /*--skills--*/
 .skillsMap {
-	margin:2.5em 0;	 
+    margin:2.5em 0;     
 }
 .skill-list:nth-child(1){
-	padding-left: 0;
+    padding-left: 0;
 }
 .skill-list:nth-child(2){
-	padding-right: 0;
+    padding-right: 0;
 }
 .grid1{
-	margin-top:2em;
+    margin-top:2em;
 }
 .lists{
-	border-left: 11px solid #11DADA;
-	padding-left:15px;
+    border-left: 11px solid #11DADA;
+    padding-left:15px;
 }
 .date {
   padding-left: 0;
 }
 .sub h5{
-	float:left;
-	width:35%;
-	color:#333;
-	font-size:1.1em;
-	font-weight:500;
-	display:inline-block;
+    float:left;
+    width:35%;
+    color:#333;
+    font-size:1.1em;
+    font-weight:500;
+    display:inline-block;
 }
 .progressy1,.progressy2,.progressy3,.progressy4,.progressy6,.progressy5{
-	width:60%;
-	float:left;
+    width:60%;
+    float:left;
 }
 .progressy1,.progressy2,.progressy3,.progressy4,.progressy6,.progressy5{
   background:#CDCDCD;
@@ -197,22 +197,22 @@ a:focus {
   height: 15px;
 }
 .progressy2 p{
-	background:#333;
+    background:#333;
   width: 70%;
   height: 15px;
 }
 .progressy3 p{
-	background:#333;
+    background:#333;
   width: 60%;
   height: 15px;
 }
 .progressy4 p{
-	background:#333;
+    background:#333;
   width: 50%;
   height: 15px;
 }
 .progressy5 p{
-	background:#333;
+    background:#333;
   width: 40%;
   height: 15px;
 }
@@ -222,7 +222,7 @@ a:focus {
   height: 15px;
 }
 .info{
-	 margin:2em 0 2.5em 0;  
+     margin:2em 0 2.5em 0;  
 }
 .info span{
   color: #11DADA;
@@ -235,39 +235,39 @@ a:focus {
   padding-left:15px; 
 }
 .left_grid{
-	float:left;
-	width:50%;
+    float:left;
+    width:50%;
 }
 .right_grid{
-	float:left;
-	width:50%;
+    float:left;
+    width:50%;
 }
 ul.list2{
-	 border-left: 11px solid #11DADA;
+     border-left: 11px solid #11DADA;
   padding-left:30px;
   margin-top:1.5em;
 }
 ul.list2 li{
-	padding:6px 0;
-	color: #333;
+    padding:6px 0;
+    color: #333;
   font-weight: 400;
   font-size:0.95em;
 }
 ul.media_sec li{
-	margin-top:0.8em;
-	display:block;
-	color: #333;
+    margin-top:0.8em;
+    display:block;
+    color: #333;
   font-weight: 500;
 }
 ul.media_sec li a{
-	display:inline-block;
-	color: #333;
+    display:inline-block;
+    color: #333;
   font-weight: 500;
   font-size:0.95em;
   text-decoration:none;
 }
 ul.media_sec li img{
-	margin-right:5px;
+    margin-right:5px;
 }
 ul.media_sec span{
   color: #11DADA;
@@ -363,11 +363,11 @@ ul.list2 li {
   padding-left: 15px;
 }
 .skill-list:nth-child(1){
-	padding:0;
+    padding:0;
 }
 .skill-list:nth-child(2){
-	padding:0;
-	margin-top: 2em;
+    padding:0;
+    margin-top: 2em;
 }
 .left_grid {
   width: 69%;
@@ -379,7 +379,7 @@ ul.list2 li {
   font-size: 0.8em;
 }
 .date{
-	padding:0;
+    padding:0;
 }
 }
 @media (max-width:640px){
@@ -439,7 +439,7 @@ ul.list2 li {
   width: 100%;
 }
 ul.media_sec{
-	  border-left: 11px solid #11DADA;
+      border-left: 11px solid #11DADA;
   padding-left: 15px;
 }
 }

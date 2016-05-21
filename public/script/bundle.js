@@ -267,38 +267,38 @@
 	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
 
 	function toObject(val) {
-		if (val === null || val === undefined) {
-			throw new TypeError('Object.assign cannot be called with null or undefined');
-		}
+	    if (val === null || val === undefined) {
+	        throw new TypeError('Object.assign cannot be called with null or undefined');
+	    }
 
-		return Object(val);
+	    return Object(val);
 	}
 
 	module.exports = Object.assign || function (target, source) {
-		var from;
-		var to = toObject(target);
-		var symbols;
+	    var from;
+	    var to = toObject(target);
+	    var symbols;
 
-		for (var s = 1; s < arguments.length; s++) {
-			from = Object(arguments[s]);
+	    for (var s = 1; s < arguments.length; s++) {
+	        from = Object(arguments[s]);
 
-			for (var key in from) {
-				if (hasOwnProperty.call(from, key)) {
-					to[key] = from[key];
-				}
-			}
+	        for (var key in from) {
+	            if (hasOwnProperty.call(from, key)) {
+	                to[key] = from[key];
+	            }
+	        }
 
-			if (Object.getOwnPropertySymbols) {
-				symbols = Object.getOwnPropertySymbols(from);
-				for (var i = 0; i < symbols.length; i++) {
-					if (propIsEnumerable.call(from, symbols[i])) {
-						to[symbols[i]] = from[symbols[i]];
-					}
-				}
-			}
-		}
+	        if (Object.getOwnPropertySymbols) {
+	            symbols = Object.getOwnPropertySymbols(from);
+	            for (var i = 0; i < symbols.length; i++) {
+	                if (propIsEnumerable.call(from, symbols[i])) {
+	                    to[symbols[i]] = from[symbols[i]];
+	                }
+	            }
+	        }
+	    }
 
-		return to;
+	    return to;
 	};
 
 
@@ -21859,67 +21859,67 @@
 	var strictUriEncode = __webpack_require__(187);
 
 	exports.extract = function (str) {
-		return str.split('?')[1] || '';
+	    return str.split('?')[1] || '';
 	};
 
 	exports.parse = function (str) {
-		if (typeof str !== 'string') {
-			return {};
-		}
+	    if (typeof str !== 'string') {
+	        return {};
+	    }
 
-		str = str.trim().replace(/^(\?|#|&)/, '');
+	    str = str.trim().replace(/^(\?|#|&)/, '');
 
-		if (!str) {
-			return {};
-		}
+	    if (!str) {
+	        return {};
+	    }
 
-		return str.split('&').reduce(function (ret, param) {
-			var parts = param.replace(/\+/g, ' ').split('=');
-			// Firefox (pre 40) decodes `%3D` to `=`
-			// https://github.com/sindresorhus/query-string/pull/37
-			var key = parts.shift();
-			var val = parts.length > 0 ? parts.join('=') : undefined;
+	    return str.split('&').reduce(function (ret, param) {
+	        var parts = param.replace(/\+/g, ' ').split('=');
+	        // Firefox (pre 40) decodes `%3D` to `=`
+	        // https://github.com/sindresorhus/query-string/pull/37
+	        var key = parts.shift();
+	        var val = parts.length > 0 ? parts.join('=') : undefined;
 
-			key = decodeURIComponent(key);
+	        key = decodeURIComponent(key);
 
-			// missing `=` should be `null`:
-			// http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
-			val = val === undefined ? null : decodeURIComponent(val);
+	        // missing `=` should be `null`:
+	        // http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
+	        val = val === undefined ? null : decodeURIComponent(val);
 
-			if (!ret.hasOwnProperty(key)) {
-				ret[key] = val;
-			} else if (Array.isArray(ret[key])) {
-				ret[key].push(val);
-			} else {
-				ret[key] = [ret[key], val];
-			}
+	        if (!ret.hasOwnProperty(key)) {
+	            ret[key] = val;
+	        } else if (Array.isArray(ret[key])) {
+	            ret[key].push(val);
+	        } else {
+	            ret[key] = [ret[key], val];
+	        }
 
-			return ret;
-		}, {});
+	        return ret;
+	    }, {});
 	};
 
 	exports.stringify = function (obj) {
-		return obj ? Object.keys(obj).sort().map(function (key) {
-			var val = obj[key];
+	    return obj ? Object.keys(obj).sort().map(function (key) {
+	        var val = obj[key];
 
-			if (val === undefined) {
-				return '';
-			}
+	        if (val === undefined) {
+	            return '';
+	        }
 
-			if (val === null) {
-				return key;
-			}
+	        if (val === null) {
+	            return key;
+	        }
 
-			if (Array.isArray(val)) {
-				return val.slice().sort().map(function (val2) {
-					return strictUriEncode(key) + '=' + strictUriEncode(val2);
-				}).join('&');
-			}
+	        if (Array.isArray(val)) {
+	            return val.slice().sort().map(function (val2) {
+	                return strictUriEncode(key) + '=' + strictUriEncode(val2);
+	            }).join('&');
+	        }
 
-			return strictUriEncode(key) + '=' + strictUriEncode(val);
-		}).filter(function (x) {
-			return x.length > 0;
-		}).join('&') : '';
+	        return strictUriEncode(key) + '=' + strictUriEncode(val);
+	    }).filter(function (x) {
+	        return x.length > 0;
+	    }).join('&') : '';
 	};
 
 
@@ -21929,9 +21929,9 @@
 
 	'use strict';
 	module.exports = function (str) {
-		return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
-			return '%' + c.charCodeAt(0).toString(16).toUpperCase();
-		});
+	    return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
+	        return '%' + c.charCodeAt(0).toString(16).toUpperCase();
+	    });
 	};
 
 
@@ -25433,10 +25433,8 @@
 	var React = __webpack_require__(1);
 	var Main = __webpack_require__(226);
 	var Home = __webpack_require__(227);
-	var Time = __webpack_require__(238);
-	var April2016 = __webpack_require__(239);
-	var May2016 = __webpack_require__(241);
-	var Github = __webpack_require__(240);
+	var LifeDetail = __webpack_require__(241);
+	var Github = __webpack_require__(239);
 	var Router = __webpack_require__(166);
 	var Route = Router.Route;
 	var IndexRoute = Router.IndexRoute;
@@ -25444,12 +25442,7 @@
 	module.exports = React.createElement(
 	    Route,
 	    { path: '/', component: Main },
-	    React.createElement(
-	        Route,
-	        { path: 'time', component: Time },
-	        React.createElement(Route, { path: '201604', component: April2016 }),
-	        React.createElement(Route, { path: '201605', component: May2016 })
-	    ),
+	    React.createElement(Route, { path: 'timeline', component: LifeDetail }),
 	    React.createElement(Route, { path: 'github', component: Github }),
 	    React.createElement(IndexRoute, { component: Home })
 	);
@@ -25463,64 +25456,72 @@
 	var React = __webpack_require__(1);
 
 	var Main = React.createClass({
-		displayName: "Main",
+	    displayName: "Main",
 
-		getInitialState: function getInitialState() {
-			return {
-				dateString: "Date: " + (new Date().getMonth() + 1) + "-" + new Date().getDate(),
-				height: 500,
-				title: 'Luckyscript'
-			};
-		},
-		handleClick: function handleClick() {
-			this.state.height == 150 ? this.setState({ height: 500, dateString: "Date: " + (new Date().getMonth() + 1) + "-" + new Date().getDate(), title: 'Luckyscript' }) : this.setState({ height: 150, dateString: '', title: '' });
-		},
-		render: function render() {
-			var headerStyle = {
-				height: this.state.height
-			};
-			return React.createElement(
-				"div",
-				null,
-				React.createElement(
-					"header",
-					{ style: headerStyle, onClick: this.handleClick },
-					React.createElement("div", { className: "top-bar" }),
-					React.createElement(
-						"div",
-						{ className: "left-bar side-bar" },
-						React.createElement("div", null)
-					),
-					React.createElement(
-						"div",
-						{ className: "right-bar side-bar" },
-						React.createElement("div", null),
-						React.createElement("div", null),
-						React.createElement("div", null)
-					),
-					React.createElement(
-						"div",
-						{ className: "bottom-bar" },
-						React.createElement("div", { id: "star-five" })
-					),
-					React.createElement(
-						"p",
-						{ className: "title" },
-						this.state.title
-					),
-					React.createElement(
-						"p",
-						{ className: "date" },
-						this.state.dateString
-					)
-				),
-				React.createElement(
-					"div",
-					{ className: "container" },
-					this.props.children
-				)
-			);
-		}
+	    getInitialState: function getInitialState() {
+	        return {
+	            dateString: "Date: " + (new Date().getMonth() + 1) + "-" + new Date().getDate(),
+	            height: 500,
+	            title: 'Luckyscript',
+	            updateString: "last update: 21 May 2016"
+	        };
+	    },
+	    handleClick: function handleClick() {
+	        this.state.height == 150 ? this.setState({ height: 500, dateString: "Date: " + (new Date().getMonth() + 1) + "-" + new Date().getDate(), title: 'Luckyscript',
+	            updateString: "last update: 21 May 2016" }) : this.setState({ height: 150, dateString: '', title: '',
+	            updateString: '' });
+	    },
+	    render: function render() {
+	        var headerStyle = {
+	            height: this.state.height
+	        };
+	        return React.createElement(
+	            "div",
+	            null,
+	            React.createElement(
+	                "header",
+	                { style: headerStyle, onClick: this.handleClick },
+	                React.createElement("div", { className: "top-bar" }),
+	                React.createElement(
+	                    "div",
+	                    { className: "left-bar side-bar" },
+	                    React.createElement("div", null)
+	                ),
+	                React.createElement(
+	                    "div",
+	                    { className: "right-bar side-bar" },
+	                    React.createElement("div", null),
+	                    React.createElement("div", null),
+	                    React.createElement("div", null)
+	                ),
+	                React.createElement(
+	                    "div",
+	                    { className: "bottom-bar" },
+	                    React.createElement("div", { id: "star-five" })
+	                ),
+	                React.createElement(
+	                    "p",
+	                    { className: "title" },
+	                    this.state.title
+	                ),
+	                React.createElement(
+	                    "p",
+	                    { className: "date" },
+	                    this.state.dateString
+	                ),
+	                React.createElement(
+	                    "p",
+	                    { className: "date" },
+	                    this.state.updateString
+	                )
+	            ),
+	            React.createElement(
+	                "div",
+	                { className: "container" },
+	                this.props.children
+	            )
+	        );
+	    }
 	});
 
 	module.exports = Main;
@@ -25541,55 +25542,55 @@
 	var Firebase = __webpack_require__(237);
 
 	var Home = React.createClass({
-		displayName: 'Home',
+	    displayName: 'Home',
 
-		mixins: [ReactFireMixin],
-		getInitialState: function getInitialState() {
-			return {
-				comments: []
-			};
-		},
-		componentDidMount: function componentDidMount() {
-			this.ref = new Firebase('https://luckyscript.firebaseio.com');
-			var childRef = this.ref.child(window.location.hash.split("?")[0].split("#")[1]);
-			this.bindAsArray(childRef, 'comments');
-		},
-		addComment: function addComment(newNote) {
-			this.ref.child(window.location.hash.split("?")[0].split("#")[1]).child(this.state.comments.length).set(newNote + " | " + (new Date().getMonth() + 1) + "-" + new Date().getDate());
-		},
-		render: function render() {
-			return React.createElement(
-				'div',
-				{ className: 'row' },
-				React.createElement(
-					'div',
-					{ className: 'col-md-8' },
-					React.createElement(Profile, null),
-					React.createElement(
-						'div',
-						{ className: 'col-md-6' },
-						React.createElement(
-							'h3',
-							null,
-							'SubSites of luckyscript: '
-						),
-						React.createElement(SubSites, null),
-						React.createElement(LifeLine, null),
-						React.createElement(
-							'h3',
-							null,
-							'Sites:'
-						),
-						React.createElement(FriendSites, null)
-					)
-				),
-				React.createElement(
-					'div',
-					{ className: 'col-md-4' },
-					React.createElement(Comment, { addComment: this.addComment, comments: this.state.comments })
-				)
-			);
-		}
+	    mixins: [ReactFireMixin],
+	    getInitialState: function getInitialState() {
+	        return {
+	            comments: []
+	        };
+	    },
+	    componentDidMount: function componentDidMount() {
+	        this.ref = new Firebase('https://luckyscript.firebaseio.com');
+	        var childRef = this.ref.child(window.location.hash.split("?")[0].split("#")[1]);
+	        this.bindAsArray(childRef, 'comments');
+	    },
+	    addComment: function addComment(newNote) {
+	        this.ref.child(window.location.hash.split("?")[0].split("#")[1]).child(this.state.comments.length).set(newNote + " | " + (new Date().getMonth() + 1) + "-" + new Date().getDate());
+	    },
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            { className: 'row' },
+	            React.createElement(
+	                'div',
+	                { className: 'col-md-8' },
+	                React.createElement(Profile, null),
+	                React.createElement(
+	                    'div',
+	                    { className: 'col-md-6' },
+	                    React.createElement(
+	                        'h3',
+	                        null,
+	                        'SubSites of luckyscript: '
+	                    ),
+	                    React.createElement(SubSites, null),
+	                    React.createElement(LifeLine, null),
+	                    React.createElement(
+	                        'h3',
+	                        null,
+	                        'Sites:'
+	                    ),
+	                    React.createElement(FriendSites, null)
+	                )
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'col-md-4' },
+	                React.createElement(Comment, { addComment: this.addComment, comments: this.state.comments })
+	            )
+	        );
+	    }
 	});
 
 	module.exports = Home;
@@ -25603,63 +25604,63 @@
 	var React = __webpack_require__(1);
 
 	var Profile = React.createClass({
-		displayName: "Profile",
+	    displayName: "Profile",
 
-		render: function render() {
-			return React.createElement(
-				"div",
-				{ className: "col-md-6" },
-				React.createElement(
-					"ul",
-					{ className: "list-group" },
-					React.createElement(
-						"li",
-						{ className: "list-group-item" },
-						React.createElement("img", { src: "https://avatars0.githubusercontent.com/u/9391201", className: "avatar" })
-					),
-					React.createElement(
-						"li",
-						{ className: "list-group-item" },
-						"Name: Luckyscript"
-					),
-					React.createElement(
-						"li",
-						{ className: "list-group-item" },
-						"Email: jsjhlk@gmail.com"
-					),
-					React.createElement(
-						"li",
-						{ className: "list-group-item" },
-						"Location: Beijing"
-					),
-					React.createElement(
-						"li",
-						{ className: "list-group-item" },
-						"Company: BIDU"
-					),
-					React.createElement(
-						"li",
-						{ className: "list-group-item" },
-						"Blog: ",
-						React.createElement(
-							"a",
-							{ href: "https://github.com/luckyScript/luckyscript.github.io/issues" },
-							"Tech blog"
-						)
-					),
-					React.createElement(
-						"li",
-						{ className: "list-group-item" },
-						"Weibo: ",
-						React.createElement(
-							"a",
-							{ href: "http://weibo.com/jsjhlk", target: "_blank" },
-							"luckyscript"
-						)
-					)
-				)
-			);
-		}
+	    render: function render() {
+	        return React.createElement(
+	            "div",
+	            { className: "col-md-6" },
+	            React.createElement(
+	                "ul",
+	                { className: "list-group" },
+	                React.createElement(
+	                    "li",
+	                    { className: "list-group-item" },
+	                    React.createElement("img", { src: "https://avatars0.githubusercontent.com/u/9391201", className: "avatar" })
+	                ),
+	                React.createElement(
+	                    "li",
+	                    { className: "list-group-item" },
+	                    "Name: Luckyscript"
+	                ),
+	                React.createElement(
+	                    "li",
+	                    { className: "list-group-item" },
+	                    "Email: jsjhlk@gmail.com"
+	                ),
+	                React.createElement(
+	                    "li",
+	                    { className: "list-group-item" },
+	                    "Location: Beijing"
+	                ),
+	                React.createElement(
+	                    "li",
+	                    { className: "list-group-item" },
+	                    "School: Xidian university"
+	                ),
+	                React.createElement(
+	                    "li",
+	                    { className: "list-group-item" },
+	                    "Blog: ",
+	                    React.createElement(
+	                        "a",
+	                        { href: "https://github.com/luckyScript/luckyscript.github.io/issues" },
+	                        "Tech blog"
+	                    )
+	                ),
+	                React.createElement(
+	                    "li",
+	                    { className: "list-group-item" },
+	                    "Weibo: ",
+	                    React.createElement(
+	                        "a",
+	                        { href: "http://weibo.com/jsjhlk", target: "_blank" },
+	                        "luckyscript"
+	                    )
+	                )
+	            )
+	        );
+	    }
 	});
 	module.exports = Profile;
 
@@ -25725,31 +25726,48 @@
 
 	var React = __webpack_require__(1);
 	var FriendSites = React.createClass({
-		displayName: "FriendSites",
+	    displayName: "FriendSites",
 
-		render: function render() {
-			return React.createElement(
-				"ul",
-				{ className: "list-group" },
-				React.createElement(
-					"a",
-					{ href: "http://yooooh.net/", target: "_blank" },
-					React.createElement(
-						"li",
-						{ className: "list-group-item" },
-						React.createElement(
-							"h4",
-							null,
-							React.createElement(
-								"p",
-								null,
-								"Mr.Thunder"
-							)
-						)
-					)
-				)
-			);
-		}
+	    render: function render() {
+	        return React.createElement(
+	            "ul",
+	            { className: "list-group" },
+	            React.createElement(
+	                "a",
+	                { href: "http://yooooh.net/", target: "_blank" },
+	                React.createElement(
+	                    "li",
+	                    { className: "list-group-item" },
+	                    React.createElement(
+	                        "h4",
+	                        null,
+	                        React.createElement(
+	                            "p",
+	                            null,
+	                            "Mr.Thunder"
+	                        )
+	                    )
+	                )
+	            ),
+	            React.createElement(
+	                "a",
+	                { href: "https://www.mierhuo.com/", target: "_blank" },
+	                React.createElement(
+	                    "li",
+	                    { className: "list-group-item" },
+	                    React.createElement(
+	                        "h4",
+	                        null,
+	                        React.createElement(
+	                            "p",
+	                            null,
+	                            "Mierhuo"
+	                        )
+	                    )
+	                )
+	            )
+	        );
+	    }
 	});
 
 	module.exports = FriendSites;
@@ -25764,20 +25782,20 @@
 	var LifeLineList = __webpack_require__(232);
 
 	var LifeLine = React.createClass({
-		displayName: 'LifeLine',
+	    displayName: 'LifeLine',
 
-		render: function render() {
-			return React.createElement(
-				'div',
-				null,
-				React.createElement(
-					'h3',
-					null,
-					'LifeLine of Luckyscript'
-				),
-				React.createElement(LifeLineList, null)
-			);
-		}
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            null,
+	            React.createElement(
+	                'h3',
+	                null,
+	                'LifeLine of Luckyscript'
+	            ),
+	            React.createElement(LifeLineList, null)
+	        );
+	    }
 	});
 	module.exports = LifeLine;
 
@@ -25791,59 +25809,55 @@
 	var Router = __webpack_require__(166);
 
 	var LifeLineList = React.createClass({
-		displayName: 'LifeLineList',
+	    displayName: 'LifeLineList',
 
-		mixins: [Router.History],
-		getRef: function getRef(ref) {
-			this.url = ref;
-		},
-		handleClick: function handleClick() {
-			this.history.pushState(null, "time/" + this.url.getElementsByTagName('input')[0].value);
-		},
-		render: function render() {
-			return React.createElement(
-				'ul',
-				{ className: 'list-group' },
-				React.createElement(
-					'li',
-					{ className: 'list-group-item lifeLine', onClick: this.handleClick, ref: this.getRef },
-					React.createElement('input', { type: 'hidden', value: '201604' }),
-					React.createElement(
-						'h4',
-						null,
-						React.createElement(
-							'p',
-							null,
-							'April 2016'
-						)
-					),
-					React.createElement(
-						'p',
-						null,
-						'Study in Baidu'
-					)
-				),
-				React.createElement(
-					'li',
-					{ className: 'list-group-item lifeLine', onClick: this.handleClick, ref: this.getRef },
-					React.createElement('input', { type: 'hidden', value: '201605' }),
-					React.createElement(
-						'h4',
-						null,
-						React.createElement(
-							'p',
-							null,
-							'May 2016'
-						)
-					),
-					React.createElement(
-						'p',
-						null,
-						'Beijing,Xi an'
-					)
-				)
-			);
-		}
+	    mixins: [Router.History],
+	    handleClick: function handleClick() {
+	        console.log(this.url);
+	        this.history.pushState(null, "timeline");
+	    },
+	    render: function render() {
+	        return React.createElement(
+	            'ul',
+	            { className: 'list-group', onClick: this.handleClick },
+	            React.createElement(
+	                'li',
+	                { className: 'list-group-item lifeLine' },
+	                React.createElement(
+	                    'h4',
+	                    null,
+	                    React.createElement(
+	                        'p',
+	                        null,
+	                        'April 2016'
+	                    )
+	                ),
+	                React.createElement(
+	                    'p',
+	                    null,
+	                    'Study in Baidu'
+	                )
+	            ),
+	            React.createElement(
+	                'li',
+	                { className: 'list-group-item lifeLine' },
+	                React.createElement(
+	                    'h4',
+	                    null,
+	                    React.createElement(
+	                        'p',
+	                        null,
+	                        'May 2016'
+	                    )
+	                ),
+	                React.createElement(
+	                    'p',
+	                    null,
+	                    'Beijing,Xi an'
+	                )
+	            )
+	        );
+	    }
 	});
 	module.exports = LifeLineList;
 
@@ -25858,25 +25872,25 @@
 	var AddComment = __webpack_require__(235);
 
 	var Comment = React.createClass({
-		displayName: 'Comment',
+	    displayName: 'Comment',
 
-		propTypes: {
-			comments: React.PropTypes.array.isRequired,
-			addComment: React.PropTypes.func.isRequired
-		},
-		render: function render() {
-			return React.createElement(
-				'div',
-				null,
-				React.createElement(
-					'h3',
-					null,
-					'leave your Comment'
-				),
-				React.createElement(AddComment, { addComment: this.props.addComment }),
-				React.createElement(CommentList, { comment: this.props.comments })
-			);
-		}
+	    propTypes: {
+	        comments: React.PropTypes.array.isRequired,
+	        addComment: React.PropTypes.func.isRequired
+	    },
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            null,
+	            React.createElement(
+	                'h3',
+	                null,
+	                'leave your Comment'
+	            ),
+	            React.createElement(AddComment, { addComment: this.props.addComment }),
+	            React.createElement(CommentList, { comment: this.props.comments })
+	        );
+	    }
 	});
 	module.exports = Comment;
 
@@ -25889,24 +25903,24 @@
 	var React = __webpack_require__(1);
 
 	var CommentList = React.createClass({
-		displayName: 'CommentList',
+	    displayName: 'CommentList',
 
-		render: function render() {
-			var comment = this.props.comment.sort(function (a, b) {
-				return b['.key'] - a['.key'];
-			}).map(function (note, index) {
-				return React.createElement(
-					'li',
-					{ className: 'list-group-item', key: index },
-					note['.value']
-				);
-			});
-			return React.createElement(
-				'ul',
-				{ className: 'list-group' },
-				comment
-			);
-		}
+	    render: function render() {
+	        var comment = this.props.comment.sort(function (a, b) {
+	            return b['.key'] - a['.key'];
+	        }).map(function (note, index) {
+	            return React.createElement(
+	                'li',
+	                { className: 'list-group-item', key: index },
+	                note['.value']
+	            );
+	        });
+	        return React.createElement(
+	            'ul',
+	            { className: 'list-group' },
+	            comment
+	        );
+	    }
 	});
 	module.exports = CommentList;
 
@@ -25919,32 +25933,32 @@
 	var React = __webpack_require__(1);
 
 	var AddComment = React.createClass({
-		displayName: 'AddComment',
+	    displayName: 'AddComment',
 
-		setRef: function setRef(ref) {
-			this.note = ref;
-		},
-		handleSubmit: function handleSubmit() {
-			var newNote = this.note.value;
-			this.note.value = '';
-			this.props.addComment(newNote);
-		},
-		render: function render() {
-			return React.createElement(
-				'div',
-				{ className: 'input-group' },
-				React.createElement('input', { type: 'text', className: 'form-control', placeholder: 'add new note', ref: this.setRef }),
-				React.createElement(
-					'span',
-					{ className: 'input-group-btn' },
-					React.createElement(
-						'button',
-						{ className: 'btn btn-default', type: 'button', onClick: this.handleSubmit },
-						'Submit new Notes'
-					)
-				)
-			);
-		}
+	    setRef: function setRef(ref) {
+	        this.note = ref;
+	    },
+	    handleSubmit: function handleSubmit() {
+	        var newNote = this.note.value;
+	        this.note.value = '';
+	        this.props.addComment(newNote);
+	    },
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            { className: 'input-group' },
+	            React.createElement('input', { type: 'text', className: 'form-control', placeholder: 'add new note', ref: this.setRef }),
+	            React.createElement(
+	                'span',
+	                { className: 'input-group-btn' },
+	                React.createElement(
+	                    'button',
+	                    { className: 'btn btn-default', type: 'button', onClick: this.handleSubmit },
+	                    'Submit new Notes'
+	                )
+	            )
+	        );
+	    }
 	});
 	module.exports = AddComment;
 
@@ -26606,98 +26620,8 @@
 
 
 /***/ },
-/* 238 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var Comment = __webpack_require__(233);
-	var ReactFireMixin = __webpack_require__(236);
-	var Firebase = __webpack_require__(237);
-
-	var Time = React.createClass({
-		displayName: 'Time',
-
-		mixins: [ReactFireMixin],
-		getInitialState: function getInitialState() {
-			return {
-				comments: []
-			};
-		},
-		componentDidMount: function componentDidMount() {
-			this.ref = new Firebase('https://luckyscript.firebaseio.com');
-			var childRef = this.ref.child(window.location.hash.split("?")[0].split("#")[1]);
-			this.bindAsArray(childRef, 'comments');
-		},
-		addComment: function addComment(newNote) {
-			this.ref.child(window.location.hash.split("?")[0].split("#")[1]).child(this.state.comments.length).set(newNote + " | " + (new Date().getMonth() + 1) + "-" + new Date().getDate());
-		},
-		render: function render() {
-			return React.createElement(
-				'div',
-				null,
-				React.createElement(
-					'div',
-					{ className: 'col-md-8' },
-					this.props.children
-				),
-				React.createElement(
-					'div',
-					{ className: 'col-md-4' },
-					React.createElement(Comment, { addComment: this.addComment, comments: this.state.comments })
-				)
-			);
-		}
-	});
-
-	module.exports = Time;
-
-/***/ },
+/* 238 */,
 /* 239 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var React = __webpack_require__(1);
-
-	var April2016 = React.createClass({
-		displayName: "April2016",
-
-		render: function render() {
-			return React.createElement(
-				"div",
-				null,
-				React.createElement(
-					"h2",
-					null,
-					"night scene in Xierqi"
-				),
-				React.createElement(
-					"p",
-					null,
-					"Out of Xierqi metro,moon,cloud,like a dragon.Cars across rapidly,wind cold."
-				),
-				React.createElement("img", { className: "time-img", src: "./assert/201604-1.jpg" }),
-				React.createElement("img", { className: "time-img", src: "./assert/201604-2.jpg" }),
-				React.createElement(
-					"h2",
-					null,
-					"Study in Baidu"
-				),
-				React.createElement(
-					"p",
-					null,
-					"I joined in Baidu this month as an intern."
-				),
-				React.createElement("img", { className: "time-img", src: "./assert/201604-3.jpg" })
-			);
-		}
-	});
-	module.exports = April2016;
-
-/***/ },
-/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26705,20 +26629,21 @@
 	var React = __webpack_require__(1);
 
 	var Github = React.createClass({
-		displayName: 'Github',
+	    displayName: 'Github',
 
-		render: function render() {
-			return React.createElement(
-				'div',
-				null,
-				' Hello world'
-			);
-		}
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            null,
+	            ' Hello world'
+	        );
+	    }
 	});
 
 	module.exports = Github;
 
 /***/ },
+/* 240 */,
 /* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -26726,41 +26651,155 @@
 
 	var React = __webpack_require__(1);
 
-	var April2016 = React.createClass({
-		displayName: "April2016",
+	var LifeDetail = React.createClass({
+	    displayName: "LifeDetail",
 
-		render: function render() {
-			return React.createElement(
-				"div",
-				null,
-				React.createElement(
-					"h2",
-					null,
-					"Tian an men square"
-				),
-				React.createElement(
-					"p",
-					null,
-					"First time to seen the chairman mao in Tian an men square."
-				),
-				React.createElement("img", { className: "time-img", src: "./assert/201605-01.jpg" }),
-				React.createElement("img", { className: "time-img", src: "./assert/201605-02.jpg" }),
-				React.createElement(
-					"h2",
-					null,
-					"In school"
-				),
-				React.createElement(
-					"p",
-					null,
-					"Back to school for an exam and a rest."
-				),
-				React.createElement("img", { className: "time-img", src: "./assert/201605-03.jpg" }),
-				React.createElement("img", { className: "time-img", src: "./assert/201605-04.jpg" })
-			);
-		}
+	    render: function render() {
+	        return React.createElement(
+	            "div",
+	            null,
+	            React.createElement(
+	                "div",
+	                { className: "time-block" },
+	                React.createElement(
+	                    "div",
+	                    { className: "time-header" },
+	                    React.createElement(
+	                        "h2",
+	                        null,
+	                        " April 2016 - Study in Baidu"
+	                    )
+	                ),
+	                React.createElement(
+	                    "div",
+	                    { className: "time-body" },
+	                    React.createElement("img", { className: "time-img", src: "./assert/201604-1.jpg" }),
+	                    React.createElement("img", { className: "time-img", src: "./assert/201604-2.jpg" }),
+	                    React.createElement("img", { className: "time-img", src: "./assert/201604-3.jpg" })
+	                ),
+	                React.createElement(
+	                    "div",
+	                    { className: "time-footer" },
+	                    React.createElement(
+	                        "i",
+	                        null,
+	                        "description:"
+	                    ),
+	                    React.createElement("br", null),
+	                    React.createElement(
+	                        "b",
+	                        null,
+	                        React.createElement(
+	                            "i",
+	                            null,
+	                            "#1 #2"
+	                        ),
+	                        "  night scene in Xierqi"
+	                    ),
+	                    React.createElement(
+	                        "p",
+	                        null,
+	                        "Out of Xierqi metro,moon,cloud,like a dragon.Cars across rapidly,wind cold."
+	                    ),
+	                    React.createElement(
+	                        "b",
+	                        null,
+	                        React.createElement(
+	                            "i",
+	                            null,
+	                            "#3"
+	                        ),
+	                        "  Study in Baidu"
+	                    ),
+	                    React.createElement(
+	                        "p",
+	                        null,
+	                        "I joined in Baidu this month as an intern."
+	                    )
+	                )
+	            ),
+	            React.createElement(
+	                "div",
+	                { className: "time-block" },
+	                React.createElement(
+	                    "div",
+	                    { className: "time-header" },
+	                    React.createElement(
+	                        "h2",
+	                        null,
+	                        " May 2016 - Ordinary life as a intern"
+	                    )
+	                ),
+	                React.createElement(
+	                    "div",
+	                    { className: "time-body" },
+	                    React.createElement("img", { className: "time-img", src: "./assert/201605-01.jpg" }),
+	                    React.createElement("img", { className: "time-img", src: "./assert/201605-02.jpg" }),
+	                    React.createElement("img", { className: "time-img", src: "./assert/201605-03.jpg" }),
+	                    React.createElement("img", { className: "time-img", src: "./assert/201605-04.jpg" }),
+	                    React.createElement("img", { className: "time-img", src: "./assert/201605-05.jpg" }),
+	                    React.createElement("img", { className: "time-img", src: "./assert/201605-06.jpg" })
+	                ),
+	                React.createElement(
+	                    "div",
+	                    { className: "time-footer" },
+	                    React.createElement(
+	                        "i",
+	                        null,
+	                        "description:"
+	                    ),
+	                    React.createElement("br", null),
+	                    React.createElement(
+	                        "b",
+	                        null,
+	                        React.createElement(
+	                            "i",
+	                            null,
+	                            "#1 #2"
+	                        ),
+	                        "  Go to tian'anmen square"
+	                    ),
+	                    React.createElement(
+	                        "p",
+	                        null,
+	                        "It's my first time to be there, not a little admire, but a bit thinking about our country."
+	                    ),
+	                    React.createElement(
+	                        "b",
+	                        null,
+	                        React.createElement(
+	                            "i",
+	                            null,
+	                            "#3 #4"
+	                        ),
+	                        "  In school"
+	                    ),
+	                    React.createElement(
+	                        "p",
+	                        null,
+	                        "Back to school for an exam and take a rest.Life ouside is tired than in school."
+	                    ),
+	                    React.createElement(
+	                        "b",
+	                        null,
+	                        React.createElement(
+	                            "i",
+	                            null,
+	                            "#5 #6"
+	                        ),
+	                        "  HongLuo temple"
+	                    ),
+	                    React.createElement(
+	                        "p",
+	                        null,
+	                        "air is fresh in mountain, our team manager organize us to climb mount HongLuo.It's awesome."
+	                    )
+	                )
+	            )
+	        );
+	    }
 	});
-	module.exports = April2016;
+	module.exports = LifeDetail;
 
 /***/ }
 /******/ ]);
