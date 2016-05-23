@@ -25433,7 +25433,7 @@
 	var React = __webpack_require__(1);
 	var Main = __webpack_require__(226);
 	var Home = __webpack_require__(227);
-	var LifeDetail = __webpack_require__(241);
+	var LifeDetail = __webpack_require__(238);
 	var Github = __webpack_require__(239);
 	var Router = __webpack_require__(166);
 	var Route = Router.Route;
@@ -25672,48 +25672,65 @@
 
 	var React = __webpack_require__(1);
 	var SubSites = React.createClass({
-		displayName: "SubSites",
+	    displayName: "SubSites",
 
-		render: function render() {
-			return React.createElement(
-				"ul",
-				{ className: "list-group" },
-				React.createElement(
-					"a",
-					{ href: "http://www.luckyscript.me/yuppie" },
-					React.createElement(
-						"li",
-						{ className: "list-group-item" },
-						React.createElement(
-							"h4",
-							null,
-							React.createElement(
-								"p",
-								null,
-								"For yuppie"
-							)
-						)
-					)
-				),
-				React.createElement(
-					"a",
-					{ href: "http://www.luckyscript.me/resume" },
-					React.createElement(
-						"li",
-						{ className: "list-group-item" },
-						React.createElement(
-							"h4",
-							null,
-							React.createElement(
-								"p",
-								null,
-								"My resume online"
-							)
-						)
-					)
-				)
-			);
-		}
+	    render: function render() {
+	        return React.createElement(
+	            "ul",
+	            { className: "list-group" },
+	            React.createElement(
+	                "a",
+	                { href: "https://music.luckyscript.me" },
+	                React.createElement(
+	                    "li",
+	                    { className: "list-group-item" },
+	                    React.createElement(
+	                        "h4",
+	                        null,
+	                        React.createElement(
+	                            "p",
+	                            null,
+	                            "Music online"
+	                        )
+	                    )
+	                )
+	            ),
+	            React.createElement(
+	                "a",
+	                { href: "http://www.luckyscript.me/yuppie" },
+	                React.createElement(
+	                    "li",
+	                    { className: "list-group-item" },
+	                    React.createElement(
+	                        "h4",
+	                        null,
+	                        React.createElement(
+	                            "p",
+	                            null,
+	                            "For yuppie"
+	                        )
+	                    )
+	                )
+	            ),
+	            React.createElement(
+	                "a",
+	                { href: "http://www.luckyscript.me/resume" },
+	                React.createElement(
+	                    "li",
+	                    { className: "list-group-item" },
+	                    React.createElement(
+	                        "h4",
+	                        null,
+	                        React.createElement(
+	                            "p",
+	                            null,
+	                            "My resume online"
+	                        )
+	                    )
+	                )
+	            )
+	        );
+	    }
 	});
 
 	module.exports = SubSites;
@@ -26620,31 +26637,7 @@
 
 
 /***/ },
-/* 238 */,
-/* 239 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var Github = React.createClass({
-	    displayName: 'Github',
-
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            null,
-	            ' Hello world'
-	        );
-	    }
-	});
-
-	module.exports = Github;
-
-/***/ },
-/* 240 */,
-/* 241 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26800,6 +26793,28 @@
 	    }
 	});
 	module.exports = LifeDetail;
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var Github = React.createClass({
+	    displayName: 'Github',
+
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            null,
+	            ' Hello world'
+	        );
+	    }
+	});
+
+	module.exports = Github;
 
 /***/ }
 /******/ ]);
