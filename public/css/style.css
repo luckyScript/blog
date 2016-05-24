@@ -158,6 +158,9 @@ header {
   margin: 25px;
   padding: 10px;
 }
+.time-block:hover {
+  box-shadow: 2px 2px 30px rgba(0,0,0,0.5);
+}
 .time-header {
   width: 100%;
   text-align: center;
@@ -170,4 +173,23 @@ header {
 .time-img:hover {
   -webkit-filter: grayscale(0);
   filter: grayscale(0);
+}
+.list-group-item {
+  overflow: hidden;
+}
+@keyframes ripple {
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+.ripple {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  background: rgba(0,188,212,.35);
+  border-radius: 100%;
+  transform: scale(0);
+  pointer-events: none;
+  animation: ripple 0.35s ease-out;
 }

@@ -10,6 +10,21 @@
         <div id="app" style="min-height: 1600px;">
 
         </div>
+        <script src="http://cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
         <script src="public/script/bundle.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $('.list-group-item').on('mousedown', function (e) {
+                    var offset = $(this).offset();
+                    var x = e.pageX;
+                    var y = e.pageY;
+                    var $ripple = $('<div class="ripple"></div>');
+                    $ripple.appendTo(this).css({
+                        left: x - offset.left - $ripple.width() / 2,
+                        top: y - offset.top - $ripple.height() / 2
+                    });
+                });
+            })
+        </script>
     </body>
 </html>
