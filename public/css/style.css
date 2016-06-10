@@ -166,11 +166,13 @@ header {
   text-align: center;
 }
 .time-img {
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+  -webkit-filter: grayscale(65%);
+  filter: grayscale(50%);
   transition: filter,-webkit-filter 0.8s;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
 }
 .time-img:hover {
+  box-shadow: 2px 2px 15px rgba(0,0,0,0.5);
   -webkit-filter: grayscale(0);
   filter: grayscale(0);
 }

@@ -16,7 +16,11 @@ var LifeLineList = React.createClass({
                 </li>
                 <li className="list-group-item lifeLine">
                     <h4><p>May 2016</p></h4>
-                    <p>Beijing,Xi an</p>
+                    <p>Beijing,Xi'an</p>
+                </li>
+                <li className="list-group-item lifeLine">
+                    <h4><p>June 2016</p></h4>
+                    <p>In School</p>
                 </li>
             </ul>
         )

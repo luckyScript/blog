@@ -13,7 +13,7 @@ var SubSites= React.createClass({
                         <h4><p>For yuppie</p></h4>
                     </li>
                 </a>
-                <a href="http://www.luckyscript.me/resume">
+                <a href="http://www.luckyscript.me/resumeen">
                     <li className="list-group-item">
                         <h4><p>My resume online</p></h4>
                     </li>
