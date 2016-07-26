@@ -6,12 +6,12 @@ var Main = React.createClass({
             dateString: "Date: "+(new Date().getMonth()+1)+"-"+new Date().getDate(),
             height: 500,
             title: 'Luckyscript',
-            updateString: "last update: 10 June 2016"
+            updateString: "last update: 26 July 2016"
         }
     },
     handleClick: function() {
         this.state.height == 150?this.setState({height: 500,dateString:"Date: "+(new Date().getMonth()+1)+"-"+new Date().getDate(),title:'Luckyscript',
-            updateString: "last update: 10 June 2016"}):this.setState({height: 150,dateString:'',title:'',
+            updateString: "last update: 26 July 2016"}):this.setState({height: 150,dateString:'',title:'',
             updateString: ''});
     },
     render: function() {
@@ -19,7 +19,7 @@ var Main = React.createClass({
             height: this.state.height
         };
         return (
-            <div> 
+            <div>
                 <header style={headerStyle} onClick = {this.handleClick}>
                     <div className="top-bar"></div>
                     <div className="left-bar side-bar">
@@ -38,9 +38,9 @@ var Main = React.createClass({
                     <p className="date">{this.state.updateString}</p>
                 </header>
                 <div className="container">
-                    
+
                         {this.props.children}
-                    
+
                 </div>
             </div>
         );

@@ -12,7 +12,7 @@ body a{
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
-}	
+}
 body {
   padding-top:0px;
 }
@@ -47,12 +47,12 @@ a:focus {
 }
 .header-right{
 	float:right;
-	width:33%;		
-}	
+	width:33%;
+}
 .list ul{
 		background:#000;
-		padding:0.5em 1em;	
-		text-align:center;	
+		padding:0.5em 1em;
+		text-align:center;
 }
 .list ul li {
 	display:inline-block;
@@ -80,7 +80,7 @@ a:focus {
 }
 /*----*/
 .content{
-	margin:2em 0; 
+	margin:2em 0;
 }
 .content h3{
 	color:#333;
@@ -107,7 +107,7 @@ a:focus {
   background: #11DADA;
   padding: 8px 0px;
   text-align: center;
-  border-bottom: 4px solid #000; 
+  border-bottom: 4px solid #000;
 }
 .posts,.college{
   margin-right: 3em;
@@ -118,7 +118,7 @@ a:focus {
 	margin-bottom:3px;
 	font-weight:600;
 }
-.posts p,.college h5{
+.posts p,.college p{
 	line-height:1.5em;
 	color:#999;
 	font-weight: 300;
@@ -128,7 +128,7 @@ a:focus {
 	font-size:1em;
 	font-weight: 400;
 }
-.city{ 
+.city{
 	width:19%;
 }
 .city h5{
@@ -157,7 +157,7 @@ a:focus {
 }
 /*--skills--*/
 .skillsMap {
-	margin:2.5em 0;	 
+	margin:2.5em 0;
 }
 .skill-list:nth-child(1){
 	padding-left: 0;
@@ -222,7 +222,7 @@ a:focus {
   height: 15px;
 }
 .info{
-	 margin:2em 0 2.5em 0;  
+	 margin:2em 0 2.5em 0;
 }
 .info span{
   color: #11DADA;
@@ -232,7 +232,7 @@ a:focus {
   color: #999;
   font-weight: 300;
   border-left: 11px solid #11DADA;
-  padding-left:15px; 
+  padding-left:15px;
 }
 .left_grid{
 	float:left;
