@@ -274,6 +274,8 @@ ul.media_sec li a{
 }
 ul.media_sec li img{
 	margin-right:5px;
+  width: 30px;
+  height: 30px;
 }
 ul.media_sec span{
   color: #11DADA;
