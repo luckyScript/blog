@@ -26,6 +26,7 @@ a:focus {
 .bottom_cnt {
   margin-top: 15px;
 }
+
 /*-- header_top --*/
 .top-header{
 	background:#000;
@@ -77,6 +78,11 @@ a:focus {
   top: 13%;
   right: 11%;
   font-style: italic;
+}
+
+.personal-image {
+  width: 100px;
+  height: 130px;
 }
 /*----*/
 .content{

@@ -54,7 +54,7 @@ var LifeDetail = React.createClass({
                 </div>
                 <div className="time-block">
                     <div className="time-header">
-                        <h2> April 2016 - In School</h2>
+                        <h2> June 2016 - In School</h2>
                     </div>
                     <div className="time-body">
                         <img className="time-img" src="./assert/201606-01.jpg"/>

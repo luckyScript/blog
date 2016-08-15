@@ -25680,6 +25680,23 @@
 	            { className: "list-group" },
 	            React.createElement(
 	                "a",
+	                { href: "https://zone.luckyscript.me" },
+	                React.createElement(
+	                    "li",
+	                    { className: "list-group-item" },
+	                    React.createElement(
+	                        "h4",
+	                        null,
+	                        React.createElement(
+	                            "p",
+	                            null,
+	                            "WeZone"
+	                        )
+	                    )
+	                )
+	            ),
+	            React.createElement(
+	                "a",
 	                { href: "https://music.luckyscript.me" },
 	                React.createElement(
 	                    "li",
@@ -26813,7 +26830,7 @@
 	                    React.createElement(
 	                        "h2",
 	                        null,
-	                        " April 2016 - In School"
+	                        " June 2016 - In School"
 	                    )
 	                ),
 	                React.createElement(
