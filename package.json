@@ -14,6 +14,7 @@
   "dependencies": {
     "axios": "^0.8.0",
     "babel-loader": "^6.2.4",
+    "extract-text-webpack-plugin": "^1.0.1",
     "firebase": "^2.3.2",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",

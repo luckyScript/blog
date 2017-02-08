@@ -195,3 +195,7 @@ header {
   pointer-events: none;
   animation: ripple 0.35s ease-out;
 }
+.footer {
+  margin-top: 50px;
+  text-align: center;
+}
